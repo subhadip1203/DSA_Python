@@ -4,3 +4,4 @@
 
 mytuple = ("apple", "banana", "cherry")
 print(mytuple[0])
+print(mytuple[1])
