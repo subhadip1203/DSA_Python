@@ -1,16 +1,22 @@
-
-def howSum(num, arr, memo={}):
+def howSum(arr,num, memo=None):
+    if memo == None: memo = {}
+    
     if memo.get(num) : return memo[num]
-    if num == 0: return []
-    if num < 0 : return None
+    elif num == 0 : return []
+    elif num < 0 : return None
+    else:
+        for x in arr:
+            reminder = num-x
+            reminderResult = howSum(arr,reminder,memo)
+            if reminderResult != None:
+                returnResult = [x,*reminderResult]
+                memo[x] = returnResult
+                return memo[x]
 
-    for x in arr:
-        reminder = num-x
-        reminderResult = howSum(reminder,arr,memo)
-        memo[reminder] = reminderResult
-        if reminderResult != None:
-            reminderResult.append(x)
-            return reminderResult
+    memo[num] = None
     return None
 
-print(howSum(300,[3,5,2]))
+
+
+print(  howSum([2,3],7)  )
+print(  howSum([7,13],100)  )
