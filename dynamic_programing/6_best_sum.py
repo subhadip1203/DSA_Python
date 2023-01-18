@@ -13,7 +13,6 @@ def bestSum (num, arr,   memo = None):
         reminderArr = bestSum (reminder, arr,memo)
         if reminderArr != None:
             newArr = [x, *reminderArr]
-            memo[x] = newArr
             if result == None or   len(newArr) < len(result) :
                 result = newArr
 
@@ -21,5 +20,5 @@ def bestSum (num, arr,   memo = None):
     return result
 
 print(bestSum(11, [1,2,3,4,5,6]))
-print(bestSum(110, [1,2,3,4,5,6]))
+print(bestSum(113, [10,19,17,70]))
 
