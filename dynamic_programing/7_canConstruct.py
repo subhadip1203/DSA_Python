@@ -1,28 +1,18 @@
-def wordMatch(targetWord, subWord):
-    targetWordLength = len(targetWord)
-    subWordLength = len(subWord)
-    if targetWordLength - subWordLength < 0:
-        return False
-    for i in range(subWordLength):
-        if subWord[i] != targetWord[i]:
-            return False
-
-    return targetWord[subWordLength:]
-
 
 def canConstruct(targetWord, wordBank, memo=None):
     if memo == None:
         memo = {}
 
-    if memo.get(targetWord):
+    if targetWord in memo:
         return memo[targetWord]
     elif targetWord == "":
         return True
+    
     for word in wordBank:
-        restOfString = wordMatch(targetWord, word)
-        if restOfString != False:
+       if word in targetWord :
+            restOfString = targetWord[len(word):]
             returnData = canConstruct(restOfString, wordBank, memo)
-            if returnData != False:
+            if returnData:
                 memo[targetWord] = True
                 return True
 
@@ -35,6 +25,6 @@ print(canConstruct("purple", ["le", "pu", "p", "pur", "ple"]))
 print(
     canConstruct(
         "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef",
-        ["e", "ee", "eeee", "eeeee", "eeeeeeee", "eeeeeeeeee"],
+        ["e", "ee", "eee", "eeee", "eeeee", "eeeeee"],
     )
 )
