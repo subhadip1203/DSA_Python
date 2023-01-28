@@ -1,3 +1,14 @@
+# def wordMatch(targetWord,subWord):
+#     targetWordLength = len(targetWord)
+#     subWordLength = len(subWord)
+#     if targetWordLength - subWordLength < 0:
+#         return False
+#     for i in range (subWordLength) :
+#         if subWord[i] != targetWord[i] :
+#             return False
+    
+#     return targetWord[subWordLength:]
+
 
 def canConstruct(targetWord, wordBank, memo=None):
     if memo == None:
