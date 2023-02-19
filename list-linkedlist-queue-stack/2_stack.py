@@ -17,5 +17,8 @@ class Stack():
         else: 
             return None
     
+    def print(self):
+        print(self.collection)
+    
 myStack = Stack()
 print(myStack.pop())
