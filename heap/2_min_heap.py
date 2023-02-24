@@ -1,4 +1,3 @@
-
 class MinHeap:
     def __init__(self,capacity):
         self.storage = [None] *capacity
@@ -45,25 +44,20 @@ class MinHeap:
             return self.storage[parentIndex]
         else:
             return None
-
-    ### advance heap methods
-    def heapifyUp(self):
-        tempChildIndex = self.currentSize -1
-        while ( self.parentIndex(tempChildIndex)  != None and self.getParentValue(tempChildIndex) > self.storage[tempChildIndex] ) :
-            parentIndex = self.parentIndex(tempChildIndex)
-            self.swapIndexValue(parentIndex,tempChildIndex)
-            tempChildIndex = parentIndex
-
-
-    def addData(self,data):
+        
+    # Function to insert a node into the heap
+    def addData(self, element):
         if self.isFull():
-            raise("capacity full , not possible to add ")
-        else:
-            index =  self.currentSize
-            self.storage[index] = data
-            self.currentSize += 1
-            self.heapifyUp()
+             raise("capacity full , not possible to add ")
+        
+        self.storage[self.currentSize] = element
+        self.currentSize+= 1
+        current = self.currentSize -1
+        while self.parentIndex(current)  != None and self.getParentValue(current) > self.storage[current] :
+            self.swapIndexValue(current, self.parentIndex(current))
+            current = self.parentIndex(current)
 
+    
     def printHeap(self):
         print(self.storage)
 
@@ -75,6 +69,8 @@ myHeap.printHeap()
 myHeap.addData(2)
 myHeap.printHeap()
 myHeap.addData(6)
+myHeap.printHeap()
+myHeap.addData(10)
 myHeap.printHeap()
 myHeap.addData(1)
 myHeap.printHeap()
