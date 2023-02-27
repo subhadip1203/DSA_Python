@@ -44,20 +44,53 @@ class MinHeap:
             return self.storage[parentIndex]
         else:
             return None
+
+    def heapifyUp(self,index):
+        current = index
+        while self.parentIndex(current)  != None and self.getParentValue(current) > self.storage[current] : 
+            self.swapIndexValue(current, self.parentIndex(current))
+            current = self.parentIndex(current)
+    
+    def heapifyDown(self, currentIndex = 0):
+        leftIndex = currentIndex*2+1
+        rightIndex = currentIndex*2+2
         
+        if leftIndex > self.currentSize  or self.storage[leftIndex] == None:
+            return
+        else:
+            if self.storage[leftIndex] != None and self.storage[currentIndex] > self.storage[leftIndex]:
+                self.swapIndexValue(currentIndex, leftIndex)
+                self.heapifyDown(leftIndex)
+            
+            if self.storage[rightIndex] != None and self.storage[currentIndex] > self.storage[rightIndex]:
+                self.swapIndexValue(currentIndex, rightIndex)
+                self.heapifyDown(rightIndex)
+
+
+
     # Function to insert a node into the heap
     def addData(self, element):
         if self.isFull():
-             raise("capacity full , not possible to add ")
+            raise("capacity full , not possible to add ")
         
         self.storage[self.currentSize] = element
         self.currentSize+= 1
-        current = self.currentSize -1
-        while self.parentIndex(current)  != None and self.getParentValue(current) > self.storage[current] :
-            self.swapIndexValue(current, self.parentIndex(current))
-            current = self.parentIndex(current)
+        lastItemIndex = self.currentSize -1
+        self.heapifyUp(lastItemIndex)
+        
 
-    
+    def popData(self):
+        if self.currentSize == 0:
+            return None
+        else:
+            popData = self.storage[0]
+            lastItemIndex = self.currentSize-1
+            print("lastItemIndex",lastItemIndex)
+            self.storage[0] , self.storage[lastItemIndex] = self.storage[lastItemIndex] , None
+            self.currentSize = lastItemIndex
+            self.heapifyDown()
+            return popData
+
     def printHeap(self):
         print(self.storage)
 
@@ -74,3 +107,10 @@ myHeap.addData(10)
 myHeap.printHeap()
 myHeap.addData(1)
 myHeap.printHeap()
+mindata = myHeap.popData()
+print(mindata)
+myHeap.printHeap()
+mindata = myHeap.popData()
+print(mindata)
+myHeap.printHeap()
+

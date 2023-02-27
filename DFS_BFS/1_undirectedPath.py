@@ -1,6 +1,8 @@
 
 # undirectedPath
 # check if exists a path between nodeA and nodeB.
+# using BFS
+
 from collections import deque
 
 class Queue:
