@@ -13,7 +13,7 @@ class Stack():
     def pop(self):
         if self.lemgth > 0:
             self.lemgth -= 1
-            return self.container.pop()
+            return self.container.popleft()
         else: 
             return None
     

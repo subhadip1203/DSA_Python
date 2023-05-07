@@ -22,18 +22,19 @@ def calculate_distances(graph, starting_vertex):
             if distance < distances[neighbor]:
                 distances[neighbor] = distance
                 heapq.heappush(pq, (distance, neighbor))
+                print("=>",pq)
 
     return distances
 
 
 node = {
-    'a' : {'b' : 2, 'c' : 1},
-    'b' : { 'a':2 , 'c':3 , 'd': 8 },
-    'c' : {'a': 4, 'b':3  ,'e':  5, 'd': 2} ,
+    'a' : {'b' : 4, 'c' : 1},
+    'b' : { 'a':4 , 'c':1 , 'd': 8 },
+    'c' : {'a': 1, 'b':1 ,'e':  5, 'd': 2} ,
     'd' : {'b': 8 , 'c': 2, 'e': 11 ,'f':22 },
     'e' : {'c': 5 ,'d': 11 ,'f': 1},
     'f' : {'d': 22 , 'e': 1}
 }
 source = 'a'
-destination = 'f'
+destination = 'b'
 print(calculate_distances(node , source))
