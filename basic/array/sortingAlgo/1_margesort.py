@@ -23,7 +23,7 @@ def margeSortedArr(left,right):
 
 
 def margesort(arr):
-    if len(arr) == 1:
+    if len(arr) <= 1:
         return arr
     else:
         mid_point = len(arr)//2
@@ -38,4 +38,7 @@ def margesort(arr):
 
 
 myArr = [1,6,30,9,2,3,4,1,169,12,30,1,7]
+print(margesort(myArr))
+
+myArr = []
 print(margesort(myArr))
