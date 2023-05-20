@@ -37,6 +37,9 @@ General Tips
 2. Sort input for O(nlogn) time and O(1) space
 
 
+<hr> 
+<hr> 
+
 # Deque
 
 Deque (Doubly Ended Queue). Retriving or removing both end is O(1) time complexity. 
