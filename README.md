@@ -134,12 +134,10 @@ class Queue():
     def pop(self):
         if self.lemgth > 0:
             self.lemgth -= 1
-            return self.container.pop()
+            return self.container.popleft()
         else: 
             return None
     
-    def print(self):
-        print(self.collection)
     
 myQueue = Queue()
 myQueue.push(1)
@@ -151,3 +149,29 @@ print(myQueue.pop())
 ```
 <hr> 
 <hr> 
+
+# Array 
+
+Its work principle First-In-First-Out . we can use deque to make a Queue
+
+```python
+
+# all zero array
+arr = [0 for element in range(5)]
+
+# all None array
+arr = [None for element in range(5)]
+
+# two diemntinal array
+arr = a = [[0]*3]*3
+# it will change all the sub array
+arr[1][1] = 3  
+
+
+# non reference array copy 
+arr  = [ [0] * 3 for _ in range(3)]
+
+```
+<hr> 
+<hr> 
+
