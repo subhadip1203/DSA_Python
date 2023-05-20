@@ -1,4 +1,42 @@
 
+# shortcut
+
+If given a linked list then
+1. Two pointers
+
+If the input array is sorted then
+1. Binary search
+2. Two pointers
+
+If asked for all permutations/subsets then
+1. Backtracking
+
+If given a tree or a graph then
+1. DFS
+2. BFS
+
+If recursion is banned then
+1. Stack
+
+If must solve in-place then
+1. Swap corresponding values
+2. Store one or more different values in the same pointer
+
+If asked for maximum/minimum subarray/subset/options then
+1. Dynamic programming
+
+If asked for top/least K items then
+1. Heap
+
+If asked for common strings then
+1. Map
+2. Trie
+
+General Tips
+1. Map/Set for O(1) time & O(n) space
+2. Sort input for O(nlogn) time and O(1) space
+
+
 # Deque
 
 Deque (Doubly Ended Queue). Retriving or removing both end is O(1) time complexity. 
