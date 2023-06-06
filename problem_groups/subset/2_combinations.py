@@ -1,3 +1,12 @@
+'''
+leetcode: https://leetcode.com/problems/combinations/solutions/
+
+Given two integers n and k, return all possible combinations of k numbers chosen from the range [1, n].
+You may return the answer in any order.
+
+'''
+
+
 def calculateCombination(arr, result, size, index=0 , current=[]):
     if len(current) == size:
         result.append(current.copy())

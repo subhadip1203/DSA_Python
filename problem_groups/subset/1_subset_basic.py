@@ -4,6 +4,7 @@ leetcode : https://leetcode.com/problems/subsets/
 Given an integer array nums of unique elements, return all possible subsets (the power set). 
 The solution set must not contain duplicate subsets. Return the solution in any order.
 '''
+
 def generateSubsets(numList , result , index = 0 , currentArr = []):
     result.append(currentArr.copy())
     for i in range(index , len(numList)):

@@ -13,11 +13,11 @@ def calculateCombinationSum(arr, resultLen, targetSum , result, index=0 , curren
     if currentSum == targetSum and len(current) == resultLen:
         result.append(current.copy())
     for i in range(index, len(arr)):
-        current.append(arr[i])
-        currentSum = currentSum+arr[i]
-        calculateCombinationSum(arr, resultLen, targetSum , result, i+1 , current , currentSum)
-        current.pop()
-        currentSum = currentSum-arr[i]
+        # current.append(arr[i])
+        # currentSum = currentSum+arr[i]
+        calculateCombinationSum(arr, resultLen, targetSum , result, i+1 , [*current, arr[i]], currentSum+arr[i])
+        # current.pop()
+        # currentSum = currentSum-arr[i]
 
 
 
