@@ -11,6 +11,11 @@ If the input array is sorted then
 If asked for all permutations/subsets then
 1. Backtracking
 
+If given continuous subarray 
+1. sliding windows
+2. Kadane's Algorithm
+
+
 If given a tree or a graph then
 1. DFS
 2. BFS
