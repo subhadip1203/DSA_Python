@@ -10,29 +10,34 @@ If that amount of money cannot be made up by any combination of the coins, retur
 
 '''
 
-def calculateNumber(coins, amount, result , currentTotal = 0 , currentCombination = []):
-    if currentTotal == amount:
-        result.append(currentCombination)
-    if currentTotal > amount:
-        return
-
-    for x in coins:
-        newTotal = currentTotal +  x
-        calculateNumber(coins, amount, result, newTotal , [*currentCombination,x])
+def calculateNumber(coins,rem, cache):
+    if rem < 0:
+        return None
+    if rem == 0:                    
+        return 0       
+    if rem in cache:
+        return cache[rem] \
+    
+    temp = 999999
+    for x in coins :     
+        result = calculateNumber(coins,rem-x, cache)
+        if result != None:
+            temp = min(result+1, temp)
+    cache[rem] = temp                     
+    return cache[rem]
            
 
 
 
 def coinChange(coins, amount):
-    result = []
-    calculateNumber(coins, amount, result)
-    # print(result)
-    smallest = len(result[0]) if len(result) > 0 else -1
-    for x in result:
-        if len(x) < smallest:
-            smallest = len(x)
-    return smallest
+    ans = calculateNumber(coins,amount, {})
+    return -1 if ans == 999999 else ans  
 
-coins = [1,2,5,]
+
+coins = [1,2,5]
 amount = 11
+print(coinChange(coins, amount))
+
+coins = [2]
+amount = 3
 print(coinChange(coins, amount))
