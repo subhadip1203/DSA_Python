@@ -12,34 +12,35 @@ If that amount of money cannot be made up by any combination of the coins, retur
 
 import math
 
-def calculateNumber(coins, rem , cache):
-
-    if rem == 0:
-        return 0
-    if rem < 0:
+def calculateNumber(coins, remaining , result , current =[]):
+    if remaining == 0 and len(result['value']) > len(current):
+        result['value'] = current
+    if remaining < 0:
         return None
-    if rem in cache:
-        return cache[rem]
-    
-    temp = math.inf
     for x in coins :
-        newRemain = rem -x
-        result = calculateNumber(coins, newRemain, cache )
-        if result != None :
-            temp = min(temp , result+1)
-    cache[rem] = temp
-    return cache[rem]
+        calculateNumber(coins, remaining - x , result, [*current , x])
+       
+
+
+
 
 
 def coinChange(coins, amount):
-    ans = calculateNumber(coins,amount, {})
-    return -1 if ans ==  math.inf  else ans  
+    result = {
+        'value' : [1 for i in range(amount+1)]
+    }
+    calculateNumber(coins,amount, result)
+    return [] if len(result['value']) > amount else result['value']
 
 
 coins = [1,2,5]
 amount = 11
 print(coinChange(coins, amount))
 
-coins = [2]
+coins = [2,1]
+amount = 3
+print(coinChange(coins, amount))
+
+coins = [1]
 amount = 3
 print(coinChange(coins, amount))
