@@ -45,6 +45,41 @@ General Tips
 <hr> 
 <hr> 
 
+# Loop
+
+Python loop by value
+
+```python
+
+for x in [1,2,3,4,5,6,7] :
+    print(x)
+```
+
+
+Python loop by index range starting from zero
+
+```python
+
+for x in range(10) :
+    print(x)
+```
+
+Python loop by index range starting from 1 to 10-1
+
+```python
+
+for x in range(2,10) :
+    print(x)
+```
+
+Python loop by index range starting from 10-1 to 2
+
+```python
+
+for x in reversed(range(2,10)) :
+    print(x)
+```
+
 # Deque
 
 Deque (Doubly Ended Queue). Retriving or removing both end is O(1) time complexity. 
