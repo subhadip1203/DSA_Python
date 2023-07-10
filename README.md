@@ -45,6 +45,14 @@ General Tips
 <hr> 
 <hr> 
 
+## important algoritms
+
+1. Kadane's Algorithm => iterative dynamic programming algorithm => maximum sum subarray 
+2. Kahn's Algorithm => Topological Sort Algorithm => only for DAG
+
+<hr>
+<hr>
+
 # Loop
 
 Python loop by value
@@ -218,3 +226,40 @@ arr  = [ [0] * 3 for _ in range(3)]
 <hr> 
 <hr> 
 
+# dictionary
+
+General dict as key-value pair
+
+```python
+
+user = {
+    'name' : 'subhadip'
+    'age' : 30
+}
+
+parent_name = user.get('name' , None)    # 'subhadip'
+parent_name = user.get('parent' , None)  #  None
+
+```
+
+
+mydefault dict  is a type of dict which has predefined 'not found' value
+
+```python
+
+from collections import defaultdict
+
+user = {
+    'name' : 'subhadip'
+    'age' : 30
+}
+user1 = defaultdict(lambda: None, user)
+parent_name =  user1['name']    # 'subhadip'
+parent_name =  user1['parent']  #  None
+
+user1 = defaultdict(lambda: 'not found', user)
+parent_name =  user1['name']    # 'subhadip'
+parent_name =  user1['parent']  #  'not found'
+
+
+```
