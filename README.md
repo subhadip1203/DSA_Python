@@ -263,3 +263,24 @@ parent_name =  user1['parent']  #  'not found'
 
 
 ```
+
+
+# Lambda
+
+A lambda function can take any number of arguments, but can only have one expression.
+
+```python
+
+x = lambda a, b : a * b
+print(x(5, 6))
+
+```
+
+sorting list or tuple by index - 1 of tuple
+
+```python
+
+my_list = [('candy','30','100'), ('apple','10','200'), ('baby','20','300')]
+my_list.sort(key=lambda x:x[1])
+
+```
