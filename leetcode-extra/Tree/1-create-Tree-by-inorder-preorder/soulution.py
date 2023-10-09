@@ -28,12 +28,12 @@ class Solution:
 
         # new inorder
         left_inorder = inorder[:index]
-        right_inorder = inorder[index:]
+        right_inorder = inorder[index+1:]
 
 
         # making left and side tree
         result_tree.left = self.buildTree(left_preorder , left_inorder)
-        result_tree.left = self.buildTree(right_preorder , right_inorder)
+        result_tree.right = self.buildTree(right_preorder , right_inorder)
 
         # return tree
-        result_tree
+        return result_tree
