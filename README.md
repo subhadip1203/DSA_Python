@@ -284,3 +284,8 @@ my_list = [('candy','30','100'), ('apple','10','200'), ('baby','20','300')]
 my_list.sort(key=lambda x:x[1])
 
 ```
+
+
+# global variable and non local variable
+`global x`
+`nonlocal x`
