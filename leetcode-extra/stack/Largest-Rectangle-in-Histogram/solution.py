@@ -11,13 +11,12 @@ class Solution:
 
         for i in range (len(heights)):
 
-            if len(myStack) == 0:
-                left[i] = 0
-            else:
-                while len(myStack) > 0 and heights[myStack[-1]] >= heights[i]:
-                    myStack.pop()
-                left[i] = 0 if len(myStack) == 0 else myStack[-1]+1
-            
+            # last item in stack = index
+            # in value[index] >= current value
+            # remove in loop , untill we find smaller value
+            while len(myStack) > 0 and heights[myStack[-1]] >= heights[i]:
+                myStack.pop()
+            left[i] = 0 if len(myStack) == 0 else myStack[-1]+1
             myStack.append(i)
 
         # clear the stack
@@ -25,12 +24,9 @@ class Solution:
         right = [0  for _ in heights]
 
         for i in reversed(range (len(heights))):
-            if len(myStack) == 0:
-                right[i] = len(heights)-1
-            else:
-                while len(myStack) > 0 and heights[myStack[-1]] >= heights[i]:
-                    myStack.pop()
-                right[i] = len(heights)-1 if len(myStack) == 0 else myStack[-1]-1
+            while len(myStack) > 0 and heights[myStack[-1]] >= heights[i]:
+                myStack.pop()
+            right[i] = len(heights)-1 if len(myStack) == 0 else myStack[-1]-1
             myStack.append(i)
 
 

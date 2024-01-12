@@ -30,8 +30,7 @@ def dijkstra(nodes, source):
 
         for childName in nodes[currentNodeName]:
             if childName not in visitedNodes:
-                childPathDistance = nodes[currentNodeName][childName] + \
-                    currentNodeDistance
+                childPathDistance = nodes[currentNodeName][childName] + currentNodeDistance
                 # updating the calculatedPath dict
                 if childPathDistance < calculatePath[childName]['costs']:
                     calculatePath[childName]['costs'] = childPathDistance
